@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web/layouts/widgets/appbar.dart';
+import 'package:flutter_web/layouts/widgets/drawer.dart';
 
 class DesktopScaffold extends StatefulWidget {
   const DesktopScaffold({super.key});
@@ -10,8 +12,14 @@ class DesktopScaffold extends StatefulWidget {
 class _DesktopScaffoldState extends State<DesktopScaffold> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.pink,
+    return Scaffold(
+      appBar: myAppBar,
+      backgroundColor: Colors.grey[300],
+      body: Row(
+        children: [
+          myDrawer
+        ],
+      )
     );
   }
 }
