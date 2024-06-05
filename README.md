@@ -16,6 +16,21 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 
+## To run this project
+
+The project has .devcontainer which can be run on `GitHub Codespace`.
+Once your codespace is launch, please install the dependencies with
+
+```sh
+flutter pub get
+```
+
+Then you can use this command to launch the web-server
+
+```sh
+rps run
+```
+
 ## My Note
 
 [video](https://www.youtube.com/watch?v=SmJB8cy8emU)

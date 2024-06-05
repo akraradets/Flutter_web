@@ -11,9 +11,7 @@ class _MobileScaffoldState extends State<MobileScaffold> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar
-      backgroundColor: Colors.grey[300],
-      
+      backgroundColor: Colors.pink,
     );
   }
 }
