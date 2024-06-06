@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import './widgets/appbar.dart';
-import './widgets/drawer.dart';
-import './widgets/navDrawer.dart';
 import './responsive_layout.dart';
 import './mobile_scaffold.dart';
 import './tablet_scaffold.dart';

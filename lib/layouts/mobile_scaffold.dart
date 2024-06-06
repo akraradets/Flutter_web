@@ -14,9 +14,25 @@ class _MobileScaffoldState extends State<MobileScaffold> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: myAppBar,
+      // appBar: myAppBar,
       backgroundColor: Colors.grey[300],
-      drawer: myDrawer
+      drawer: myDrawer,
+      body: Column(children: [
+        const Text('sdfsdfsdf'),
+        AspectRatio(aspectRatio: 1,
+        child: SizedBox(
+          width: double.infinity,
+          child: GridView.builder(
+            itemCount: 4,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2), 
+            itemBuilder: (context, index){
+              return Container(
+                color: Colors.blue,
+              );
+          }),
+        ),)
+        
+      ],)
     );
   }
 }
