@@ -11,25 +11,28 @@ RUN echo 'deb [arch=amd64 signed-by=/etc/apt/keyrings/google-chrome.gpg] http://
 RUN apt update
 RUN apt install -y google-chrome-stable
 
-# RUN useradd -ms /bin/bash dev
-# USER dev
-# WORKDIR /home/dev
-USER root
+RUN useradd -ms /bin/bash dev
+USER dev
+WORKDIR /home/dev
+ARG HOME=/home/dev
 # Get Flutter
 RUN wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.22.1-stable.tar.xz -O /tmp/flutter.tar.xz
-# RUN tar -xf /tmp/flutter.tar.xz -C ~/
-# RUN echo 'PATH="~/flutter/bin:$PATH"'  >> ~/.bashrc
-# ENV PATH="~/flutter/bin:$PATH"
+RUN tar -xf /tmp/flutter.tar.xz -C $HOME
+# RUN echo 'PATH="$HOME/flutter/bin:$PATH"'  >> $HOME/.bashrc
+ENV PATH="$HOME/flutter/bin:$PATH"
 # RUN /bin/bash -c dart pub global activate rps 
-# RUN echo 'PATH=$PATH:~/.pub-cache/bin"' >> ~/.bashrc
-# ENV PATH="$PATH":"~/.pub-cache/bin"
-RUN tar -xf /tmp/flutter.tar.xz -C /usr/bin
-RUN git config --global --add safe.directory /usr/bin/flutter
-# RUN echo 'PATH="/usr/bin/flutter/bin:$PATH"'  >> /usr/bin/.bashrc
-ENV PATH="/usr/bin/flutter/bin:$PATH"
-RUN dart pub global activate rps 
-# RUN echo 'PATH=$PATH:/usr/bin/.pub-cache/bin"' >> /usr/bin/.bashrc
-ENV PATH="$PATH":"/root/.pub-cache/bin"
+# RUN echo 'PATH="$PATH:$HOME/.pub-cache/bin"' >> $HOME/.bashrc
+ENV PATH="$PATH:$HOME/.pub-cache/bin"
+
+
+USER root
+# RUN tar -xf /tmp/flutter.tar.xz -C /usr/bin
+# RUN git config --global --add safe.directory /usr/bin/flutter
+# # RUN echo 'PATH="/usr/bin/flutter/bin:$PATH"'  >> /usr/bin/.bashrc
+# ENV PATH="/usr/bin/flutter/bin:$PATH"
+# RUN dart pub global activate rps 
+# # RUN echo 'PATH=$PATH:/usr/bin/.pub-cache/bin"' >> /usr/bin/.bashrc
+# ENV PATH="$PATH":"/root/.pub-cache/bin"
 
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
