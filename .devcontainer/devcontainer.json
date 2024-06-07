@@ -22,7 +22,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "git config --global --add safe.directory /usr/bin/flutter && flutter",
+	"postCreateCommand": "/bin/bash init.sh",
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -31,8 +31,8 @@
 				"FelixAngelov.bloc"
 			]
 		}
-	}
+	},
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+	"remoteUser": "root"
 }
